@@ -36,7 +36,7 @@ public class Player {
 	}
 
 	public void basicLaser() {
-		this.lasers.add(new Laser(x + (width / 2.3), (float) (y - (height / 1.5))));
+		this.lasers.add(new Laser(x + (width), (float) (y + (height / 2.3))));
 	}
 
 	public void input(KeyEvent input) {

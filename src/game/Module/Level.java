@@ -34,17 +34,20 @@ public class Level extends JPanel implements ActionListener {
 
 		addKeyListener(new KeyboardAdapter());
 
+		create_enemies();
+
 		timer = new Timer(5, this);
 		timer.start();
 	}
 
 	public void create_enemies() {
-		int pos[] = new int[this.enemies_number];
+		int pos[] = new int[40];
 		alien = new ArrayList<Alien>();
 
 		for (int i = 0; i < pos.length; i++) {
-			int x = (int) (Math.random() * 5000 + 1240);
-			int yu = (int) (Math.random() * 5000 + 1240);
+			int x = (int) (Math.random() * 8000 + 1024);
+			int y = (int) (Math.random() * 650 + 30);
+			alien.add(new Alien(x, y));
 		}
 	}
 
@@ -58,6 +61,11 @@ public class Level extends JPanel implements ActionListener {
 			Laser bullet = lasers.get(i);
 			bullet.load();
 			graphic.drawImage(bullet.getImage(), bullet.getX(), bullet.getY(), this);
+		}
+		for (int i = 0; i < alien.size(); i++) {
+			Alien enemy = alien.get(i);
+			enemy.load();
+			graphic.drawImage(enemy.getImage(), enemy.getX(), enemy.getY(), this);
 		}
 		graphic.dispose();
 	}
@@ -75,6 +83,15 @@ public class Level extends JPanel implements ActionListener {
 				bullet.update();
 			} else {
 				lasers.remove(i);
+			}
+		}
+
+		for (int i = 0; i < alien.size(); i++) {
+			Alien enemy = alien.get(i);
+			if (enemy.isVisible()) {
+				enemy.update();
+			} else {
+				alien.remove(i);
 			}
 		}
 

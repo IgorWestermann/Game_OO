@@ -4,6 +4,7 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
+// Mesma ideia da classe laser porem com spawn aleatorio em um range fora da tela e andando de direita para a esquerda
 public class Alien {
     private Image image;
     private int x, y;
@@ -20,7 +21,7 @@ public class Alien {
     }
 
     public void load() {
-        ImageIcon ref = new ImageIcon("img\\graphics\\monters\\alien.png");
+        ImageIcon ref = new ImageIcon("img\\graphics\\monsters\\alien.png");
         image = ref.getImage();
 
         this.width = image.getWidth(null);

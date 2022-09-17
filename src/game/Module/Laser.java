@@ -28,8 +28,8 @@ public class Laser {
     }
 
     public void update() {
-        this.y -= SPEED;
-        if (this.y >= HEIGHT) {
+        this.x += SPEED;
+        if (this.x >= HEIGHT) {
             isVisible = false;
         }
     }
