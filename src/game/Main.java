@@ -2,11 +2,14 @@ package game;
 
 import javax.swing.JFrame;
 
+// import game.Graphics.Spritesheet;
 import game.Module.Level;
 
-public class Container extends JFrame {
+public class Main extends JFrame {
 
-	public Container() {
+	// public static Spritesheet spritesheet;
+
+	public Main() {
 		add(new Level());
 		setTitle("Game OO");
 		setSize(1240, 720);
@@ -18,7 +21,7 @@ public class Container extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		new Container();
+		new Main();
 	}
 
 }

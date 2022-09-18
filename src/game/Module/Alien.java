@@ -11,7 +11,6 @@ public class Alien {
     private float width, height;
     private boolean isVisible;
 
-    // private static final int HEIGHT = 800;
     private static int SPEED = 2;
 
     public Alien(double d, float f) {

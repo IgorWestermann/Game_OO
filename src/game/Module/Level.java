@@ -41,7 +41,7 @@ public class Level extends JPanel implements ActionListener {
 	}
 
 	public void create_enemies() {
-		int pos[] = new int[40];
+		int pos[] = new int[enemies_number];
 		alien = new ArrayList<Alien>();
 
 		for (int i = 0; i < pos.length; i++) {

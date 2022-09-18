@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 public class Player {
 
 	private int x, y, dx, dy;
+	private int direction;
 	private float width, height;
 	private Image image;
 	private List<Laser> lasers;
@@ -22,8 +23,22 @@ public class Player {
 	}
 
 	public void load() {
-		ImageIcon ref = new ImageIcon("img\\graphics\\ship.png");
-		image = ref.getImage();
+		if (direction == 10) {
+			ImageIcon ref = new ImageIcon("img\\graphics\\player\\up_0.png");
+			image = ref.getImage();
+		} else if (direction == -10) {
+			ImageIcon ref = new ImageIcon("img\\graphics\\player\\down_0.png");
+			image = ref.getImage();
+		} else if (direction == 5) {
+			ImageIcon ref = new ImageIcon("img\\graphics\\player\\right_0.png");
+			image = ref.getImage();
+		} else if (direction == -5) {
+			ImageIcon ref = new ImageIcon("img\\graphics\\player\\left_0.png");
+			image = ref.getImage();
+		} else {
+			ImageIcon ref = new ImageIcon("img\\graphics\\player\\down_0.png");
+			image = ref.getImage();
+		}
 		height = image.getHeight(null);
 		width = image.getWidth(null);
 
@@ -32,7 +47,7 @@ public class Player {
 	public void update() {
 		x += dx;
 		y += dy;
-
+		this.load();
 	}
 
 	public void basicLaser() {
@@ -44,12 +59,16 @@ public class Player {
 
 		if (key == KeyEvent.VK_UP) {
 			dy = -4;
+			direction = 10;
 		} else if (key == KeyEvent.VK_DOWN) {
 			dy = 4;
+			direction = -10;
 		} else if (key == KeyEvent.VK_RIGHT) {
 			dx = 4;
+			direction = 5;
 		} else if (key == KeyEvent.VK_LEFT) {
 			dx = -4;
+			direction = -5;
 		} else if (key == KeyEvent.VK_A) {
 			basicLaser();
 		}
